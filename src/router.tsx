@@ -1,7 +1,12 @@
 import { Route, Routes } from "react-router-dom"
+import Home from "./Pages/Home"
 
 const Router = () =>{
-    <Routes>
-        <Route path="/" element={<div>Home</div>}/>
-    </Routes>
+    return(
+        <Routes>
+            <Route path="/" element={ <Home/> }/>
+        </Routes>
+    )
 }
+
+export default Router

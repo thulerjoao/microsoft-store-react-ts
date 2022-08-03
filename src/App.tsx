@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Router from "./router"
 import './App.css'
 
 const App = () =>{
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>App</div>
+    <div>
+      < Router />
     </div>
   )
 }
