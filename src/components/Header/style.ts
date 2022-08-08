@@ -4,10 +4,13 @@ export const HeaderContainer = styled.header`
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    width: 95%;
     height: 10rem;
-    padding-bottom: 12rem ;
+    padding: 0 1.5rem;
+    padding-bottom: 10.5rem ;
     box-sizing: border-box;
+    
+
 
     h1{
         margin: .8rem;
@@ -27,7 +30,6 @@ export const HeaderContainer = styled.header`
         display: flex;
         align-items: center;
         background-color: #D8D8DC;
-        margin: 1rem;
         border-radius: 10px;
         padding: 0.2rem 1rem;
         padding-right: 5rem;
@@ -75,7 +77,6 @@ export const HeaderContainer = styled.header`
     .cardTwo{
         display: flex;
         background-color: #D8D8DC;
-        margin: 1rem;
         border-radius: 10px;
         padding: 0.2rem 1rem;
         padding-right: 3rem;

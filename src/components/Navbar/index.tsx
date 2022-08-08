@@ -6,14 +6,12 @@ const NavBar = () =>{
             <div className="filters">
             <div className="genres">
                 <p>Gêneros:</p>
-                <Styled.GenreNavigatton active>Todos</Styled.GenreNavigatton>
-                <p>Ação</p>
-                <p>Aventura</p>
-                <p>FPS</p>
+                <Styled.GenreNavigatton active >Todos</Styled.GenreNavigatton>
+                <Styled.GenreNavigatton>Ação</Styled.GenreNavigatton>
+                <Styled.GenreNavigatton>Aventura</Styled.GenreNavigatton>
+                <Styled.GenreNavigatton>FPS</Styled.GenreNavigatton>
             </div>
-            <Styled.FavoriteButton active>
-                <p>Mostrar Favoritos</p>
-            </Styled.FavoriteButton>
+            <Styled.FavoriteButton>Mostrar Favoritos</Styled.FavoriteButton>
             </div>
         </Styled.GenresNavegationBar>
     )};

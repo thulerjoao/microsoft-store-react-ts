@@ -6,8 +6,12 @@ export const HomeContainer = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(${backgroundHome});
+    background: url(${backgroundHome});
+    background-size: 100%;
     align-items: center;
+
+    /* background: url(${backgroundHome}) repeat 0 0; */
+    
     
     
     h1{

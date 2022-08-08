@@ -10,25 +10,29 @@ export const GenresNavegationBar = styled.div`
     color: #ffffff;
     margin: 1rem 0;
     height: 4vh;
+    width: 95%;
+
     p{
         padding:  0.5rem;
     }
 
     .filters{
+        
         display: flex;
         justify-content: space-between;
         width: 100%;        
         align-items: center;
-        padding-left: 1.5rem;
+        padding: 0 1.5rem;
 
         div{
             display: flex;
         }
 
     .genres{
-        border: 2px solid #C4C5C7;
-        background-color: #C4C5C750;
+        border: 2px solid #ffffff;
+        background-color: #C4C5C7;
         border-radius: 3px;
+        box-sizing: border-box;
     }
 }
 `
@@ -37,7 +41,7 @@ export const GenreNavigatton = styled.p<GenreNavigattonProps>`
     border: 0;
     color: #ffffff;
     cursor: pointer;
-    margin: 0 0.3rem;
+    margin-left: 0.3rem;
 
     :hover{
         color: #329C00;
@@ -46,8 +50,6 @@ export const GenreNavigatton = styled.p<GenreNavigattonProps>`
     ${({active})=> active && css`
         color: C4C5C7;
         background-color: #329C00;
-        border-left:2px solid #C4C5C7;
-        border-right:2px solid #C4C5C7;
 
         :hover{
             color:#C4C5C7
@@ -59,9 +61,8 @@ export const GenreNavigatton = styled.p<GenreNavigattonProps>`
 export const FavoriteButton = styled.p<GenreNavigattonProps>`
     font-size: 1.2rem;
     font-weight: 500;
-    background-color: #C4C5C750;
-    margin-right: 9rem;
-    border: 2px solid #C4C5C7;
+    background-color: #C4C5C7;
+    border: 2px solid #ffffff;
     border-radius: 3px;
     cursor: pointer;
 
