@@ -9,10 +9,7 @@ export const HomeContainer = styled.div`
     background: url(${backgroundHome});
     background-size: 100%;
     align-items: center;
-
-    /* background: url(${backgroundHome}) repeat 0 0; */
-    
-    
+    user-select: none;
     
     h1{
         color: #ffffff;

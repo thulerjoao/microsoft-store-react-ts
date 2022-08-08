@@ -1,5 +1,5 @@
 import Header from "../../components/Header"
-import NavBar from "../../components/Navbar"
+import NavBar from "../../components/NavBar"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
 import { mockedGames } from "../../mocks"

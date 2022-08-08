@@ -4,10 +4,15 @@ interface GenreNavigattonProps{
     active?:boolean;
 }
 
+
 export const GenresNavegationBar = styled.div`
+
+${({theme})=> css`
+
+
     width: 100%;
     display: flex;
-    color: #ffffff;
+    color: ${theme.colors.textPrimaryColor};
     margin: 1rem 0;
     height: 4vh;
     width: 95%;
@@ -15,6 +20,36 @@ export const GenresNavegationBar = styled.div`
     p{
         padding:  0.5rem;
     }
+
+    .searchAndButton{
+        width: 25rem;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .divSearch{
+        align-items: center;
+        background-color: ${theme.colors.greyBackground};
+        padding-left: 0.5rem;
+        box-sizing: border-box;
+        border: 1px solid ${theme.colors.borderColor};
+        border-radius: 3px;
+        color:${theme.colors.textPrimaryColor};
+    }
+
+    input{
+        all: unset;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        color:${theme.colors.textPrimaryColor};
+        background-color: ${theme.colors.greyBackground};
+        width: 10.5rem;
+        height: 4vh;
+        
+           }
 
     .filters{
         
@@ -29,52 +64,60 @@ export const GenresNavegationBar = styled.div`
         }
 
     .genres{
-        border: 2px solid #ffffff;
-        background-color: #C4C5C7;
+        border: 1px solid ${theme.colors.borderColor};
+        background-color: ${theme.colors.backgoundCards};
         border-radius: 3px;
         box-sizing: border-box;
+        align-items: center;
     }
 }
+`}
 `
 
 export const GenreNavigatton = styled.p<GenreNavigattonProps>`
-    border: 0;
-    color: #ffffff;
+
+${({theme})=> css`
+
     cursor: pointer;
     margin-left: 0.3rem;
 
     :hover{
-        color: #329C00;
+        color: ${theme.colors.activeColor};
     }
 
-    ${({active})=> active && css`
-        color: C4C5C7;
-        background-color: #329C00;
+    ${({active}:any)=> active && css`
+        color: ${theme.colors.textSecondaryColor};
+        background-color: ${theme.colors.activeColor};
 
         :hover{
-            color:#C4C5C7
+            color:${theme.colors.greyBackground}
         }
     `}
-
+`}
 `
 
 export const FavoriteButton = styled.p<GenreNavigattonProps>`
+
+${({theme})=> css`
+
     font-size: 1.2rem;
     font-weight: 500;
-    background-color: #C4C5C7;
-    border: 2px solid #ffffff;
+    background-color: ${theme.colors.backgoundCards};
+    border: 1px solid ${theme.colors.borderColor};
     border-radius: 3px;
     cursor: pointer;
 
     :hover{
-            color:#329C00;
+            color:${theme.colors.activeColor};
         }
     
-    ${({active}) => active && css`
-        background-color: #329C00;
+    ${({active}:any) => active && css`
+        background-color: ${theme.colors.activeColor};
+        color: ${theme.colors.textSecondaryColor};
 
         :hover{
-            color:#C4C5C7
+            color:${theme.colors.greyBackground}
         }        
     `}
+`}
 `
