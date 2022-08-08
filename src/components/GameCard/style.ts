@@ -1,11 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const GameListContainer = styled.div`
+
+${({ theme })=> css`
+
+
     width: 260px;
     height: 480px;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: ${theme.colors.backgoundCards};
     align-items: center;
     margin: 1rem;
     border-radius: 10px;
@@ -39,7 +43,7 @@ export const GameListContainer = styled.div`
     }
 
     .playButton{
-        background-color: #329C00;
+        background-color: ${theme.colors.activeColor};
         text-align: center;
         border-radius: 3px;
         margin-top: 0.2rem;
@@ -47,5 +51,5 @@ export const GameListContainer = styled.div`
     }
 
 
-    
+`}   
 `

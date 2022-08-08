@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
+
+${({theme})=> css`
+
+
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -29,14 +33,14 @@ export const HeaderContainer = styled.header`
     .cardOne{
         display: flex;
         align-items: center;
-        background-color: #D8D8DC;
+        background-color: ${theme.colors.backgoundCards};
         border-radius: 10px;
         padding: 0.2rem 1rem;
         padding-right: 5rem;
     }
 
     .ball{
-        background-color: #C4C4C7;
+        background-color: ${theme.colors.greyBackground};
         margin: 1rem 1rem 1rem 0.2rem;
         padding: 0.8rem;
         width: 1.6rem;
@@ -66,7 +70,7 @@ export const HeaderContainer = styled.header`
         color: blue;
         border: none;
         text-decoration: none;
-        background-color: #D8D8DC;
+        background-color: ${theme.colors.backgoundCards};
         font-weight: 500;
         margin-top: 0.3rem;
         cursor: pointer;
@@ -76,7 +80,7 @@ export const HeaderContainer = styled.header`
 
     .cardTwo{
         display: flex;
-        background-color: #D8D8DC;
+        background-color: ${theme.colors.backgoundCards};
         border-radius: 10px;
         padding: 0.2rem 1rem;
         padding-right: 3rem;
@@ -101,6 +105,6 @@ export const HeaderContainer = styled.header`
         font-weight: 500;
     };
     
-
+`}
 
 `

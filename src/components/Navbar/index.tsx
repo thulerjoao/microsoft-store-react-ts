@@ -1,5 +1,9 @@
 import * as Styled from "./style"
 
+interface GenreNavigattonProps{
+    active?:boolean;
+}
+
 const NavBar = () =>{
     return(
         <Styled.GenresNavegationBar>

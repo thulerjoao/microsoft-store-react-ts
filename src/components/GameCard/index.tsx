@@ -20,6 +20,3 @@ const GameCard = ({game}:GameCardProps)=>{
 
 export default GameCard
 
-function toFixed(imdbScore: number, arg1: number): import("react").ReactNode {
-    throw new Error("Function not implemented.")
-}
