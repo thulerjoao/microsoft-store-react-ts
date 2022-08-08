@@ -1,5 +1,5 @@
 import { Game } from "../../types"
-import GameCard from "../GameCard"
+import GameCard from "../GameCard/index"
 import * as Styled from "./style"
 
 

@@ -1,21 +1,22 @@
+import { Genres } from "../../types";
 import * as Styled from "./style"
+import GenreCard from "../GenreCard"
 
-interface GenreNavigattonProps{
-    active?:boolean;
+interface GenreListProps {
+    list: Genres[]
 }
 
-const NavBar = () =>{
+const NavBar = ({ list }:GenreListProps) =>{
     return(
         <Styled.GenresNavegationBar>
-            <div className="filters">
+          <div className="filters">
             <div className="genres">
                 <p>Gêneros:</p>
-                <Styled.GenreNavigatton active >Todos</Styled.GenreNavigatton>
-                <Styled.GenreNavigatton>Ação</Styled.GenreNavigatton>
-                <Styled.GenreNavigatton>Aventura</Styled.GenreNavigatton>
-                <Styled.GenreNavigatton>FPS</Styled.GenreNavigatton>
+                {list.map((element, index)=>
+                <GenreCard genre={element} key={index}/>
+            )}
             </div>
-            <Styled.FavoriteButton>Mostrar Favoritos</Styled.FavoriteButton>
+            <Styled.FavoriteButton active>Mostrar Favoritos</Styled.FavoriteButton>
             </div>
         </Styled.GenresNavegationBar>
     )};

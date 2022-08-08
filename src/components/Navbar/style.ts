@@ -1,6 +1,6 @@
 import styled,{css} from "styled-components";
 
-interface GenreNavigattonProps{
+interface GenreActiveProps{
     active?:boolean;
 }
 
@@ -74,29 +74,7 @@ ${({theme})=> css`
 `}
 `
 
-export const GenreNavigatton = styled.p<GenreNavigattonProps>`
-
-${({theme})=> css`
-
-    cursor: pointer;
-    margin-left: 0.3rem;
-
-    :hover{
-        color: ${theme.colors.activeColor};
-    }
-
-    ${({active}:any)=> active && css`
-        color: ${theme.colors.textSecondaryColor};
-        background-color: ${theme.colors.activeColor};
-
-        :hover{
-            color:${theme.colors.greyBackground}
-        }
-    `}
-`}
-`
-
-export const FavoriteButton = styled.p<GenreNavigattonProps>`
+export const FavoriteButton = styled.p<GenreActiveProps>`
 
 ${({theme})=> css`
 
