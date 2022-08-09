@@ -2,6 +2,8 @@ import * as Style from "./style"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 
+
+
 const LoginCard = ()=> {
     const navegate = useNavigate()
 

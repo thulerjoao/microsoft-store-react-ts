@@ -110,9 +110,10 @@ ${({theme})=> css`
         
     }
 
-    p, img{
-        margin: 0.2rem;
+    p{
+        margin: 0.4rem;
         font-weight: 500;
+        cursor: pointer;
     };
     
 `}
