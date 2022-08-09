@@ -5,7 +5,7 @@ export const GameListContainer = styled.div`
 ${({ theme })=> css`
 
 
-    width: 260px;
+    min-width: 260px;
     height: 480px;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,11 @@ ${({ theme })=> css`
     border-radius: 10px;
     position: relative;
 
-    img{
+    .gameCardDiv{
+    background-color: white;
+    }
+
+    .gameImage{
         height: 320px;
         width: 228px;
         border-radius: 5px; 
@@ -23,7 +27,7 @@ ${({ theme })=> css`
         top:0.9rem;
     }
 
-    div{
+   .cardInfos{
         width: 260px;
         padding: 0 1.5rem;
         box-sizing: border-box;
@@ -35,7 +39,7 @@ ${({ theme })=> css`
         font-size: 1rem;
     }
 
-    p, h3{
+    .gameText, .gameTitle{
         
         color: black;
         font-size: 1rem;
