@@ -47,6 +47,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-{/* <NavBar list={mockedGenres}/> */}

@@ -14,7 +14,6 @@ ${({ theme })=> css`
     margin: 1rem;
     border-radius: 10px;
     position: relative;
-    cursor: pointer;
 
     img{
         height: 320px;
@@ -48,6 +47,7 @@ ${({ theme })=> css`
         border-radius: 3px;
         margin-top: 0.2rem;
         color: #ffffff;
+        cursor: pointer;
     }
 
 
