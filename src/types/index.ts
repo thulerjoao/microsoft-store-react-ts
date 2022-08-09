@@ -8,6 +8,7 @@ export interface Game{
   trailerYoutubeUrl?: string;
   gameplayYoutubeUrl?: string;
   genreName?: string;
+  isfavorite?:boolean;
   createdAt: Date;
   updatedAt: Date
 }
