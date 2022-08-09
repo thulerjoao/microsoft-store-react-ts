@@ -17,7 +17,7 @@ const navegate = useNavigate()
                     <div className="nameEmail">
                         <p className="userName">João Pedro Thuler Lima</p>
                         <p className="email">thuler_lima@hotmail.com</p> 
-                        <button onClick={()=> navegate("/login")}>Sair</button>
+                        <button onClick={()=> navegate("/")}>Sair</button>
                     </div>   
                 </div>
                 <div className="cardTwo">

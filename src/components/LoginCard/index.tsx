@@ -20,7 +20,7 @@ const LoginCard = ()=> {
                             <p>Não tem uma conta?</p>
                             <p className="createLink" onClick={()=> toast.error('Sessão em desenvolvimento')}>Crie Uma!</p>
                         </div>
-                        <p className="nextButton" onClick={()=> navegate("/")}>Próximo</p>
+                        <p className="nextButton" onClick={()=> navegate("/home")}>Próximo</p>
                     </div>
                 </div>
             
