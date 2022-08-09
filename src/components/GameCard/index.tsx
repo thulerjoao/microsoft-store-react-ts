@@ -20,3 +20,4 @@ const GameCard = ({game}:GameCardProps)=>{
 
 export default GameCard
 
+

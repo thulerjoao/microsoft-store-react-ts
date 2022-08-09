@@ -38,7 +38,3 @@ ${({theme})=> css`
 `}
 `
 
-interface GenreNavigattonProps{
-    active?:boolean;
-}
-
