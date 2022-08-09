@@ -13,18 +13,28 @@ ${({theme})=> css`
     padding: 0 1.5rem;
     padding-bottom: 10.5rem ;
     box-sizing: border-box;
-    
+    align-items: center ;
 
 
     h1{
         margin: .8rem;
+        display: none;
+    }
+
+    .logoMicrosoft{
+        width: 15rem;
+        align-items: center;
+        margin-top: 3rem ;
+
     }
 
     .cards{
+        width: 100%;
         flex-wrap: wrap;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-top: -9rem;
     }
 
 

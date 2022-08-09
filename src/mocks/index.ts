@@ -251,7 +251,7 @@ export const mockedGames: T.Game[] = [
       title: "Todos",
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
+    } as const,
     {
       id: "ef215c07-a2e4-495c-9e0f-5c10cc971d11",
       title: "Mundo Aberto",
