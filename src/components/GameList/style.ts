@@ -26,14 +26,14 @@ ${({theme})=> css`
             font-weight: 500;
             position: absolute;
             text-align: center;
-            top: 1.5rem;    
+            top: 1rem;    
         }
 
         div{
             display: flex;
             flex-wrap:wrap;
             justify-content: space-around;
-            margin-top: 3.2rem ;
+            margin-top: 2.3rem ;
         }
 `}
 `

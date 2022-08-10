@@ -1,5 +1,6 @@
 import * as Styled from "./style"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const Header = () =>{
 const navegate = useNavigate()
@@ -30,7 +31,7 @@ const navegate = useNavigate()
                         </svg>
                     </div>
                     <div className="line">
-                        <p>Gerenciamento de usuário</p>
+                        <p onClick={()=> toast.error('Sessão em desenvolvimento')}>Gerenciamento de usuário</p>
                         <p onClick={()=>navegate("/settings")}>Cadastrar/ Editar Jogo</p>
                     </div>   
                 </div>

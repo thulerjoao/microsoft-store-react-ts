@@ -82,7 +82,7 @@ ${({theme})=> css`
         text-decoration: none;
         background-color: ${theme.colors.backgoundCards};
         font-weight: 500;
-        margin-top: 0.3rem;
+        margin-left: 0.5rem;
         cursor: pointer;
     }
 

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 
 const LoginCard = ()=> {
-    const navegate = useNavigate()
+const navegate = useNavigate()
 
     return(
         <Style.LoginCardContainer>
@@ -15,8 +15,8 @@ const LoginCard = ()=> {
                     <h2>Entrar</h2>
                     <div>
                         
-                        <input type="text" value="Email" required/>
-                        <input type="text" value="Senha" required/>
+                        <input type="text" placeholder="Email" required/>
+                        <input type="password" placeholder="Senha" required/>
                         
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>

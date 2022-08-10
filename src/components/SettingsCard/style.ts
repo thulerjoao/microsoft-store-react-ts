@@ -25,6 +25,7 @@ h2{
 .cardList{
     width: 95%;
     margin-left: 2.5%;
+    margin-bottom: 2rem;
     height: 25rem;
     display: flex;
     border: 1px solid black;
@@ -71,6 +72,24 @@ h2{
     height: 20rem;
 }
 
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+    border-radius: 10px 10px 0 0;
+    background-color: #F3F3F3;
+    box-sizing: border-box;
+}
+
+.comeBack{
+    cursor:pointer;
+    font-size: 1.2rem;
+    color: #0085FF;
+    border-radius: 10px 10px 0 0;
+}
+
 .settings{
     width: 100%;
     height: 44px;
@@ -82,7 +101,9 @@ h2{
     align-items: center;
     font-size: 1.2rem;
     border-radius: 10px 10px 0 0;
+    
 }
+
 
 .confirmButtons{
     margin-top: 2rem;
@@ -93,7 +114,7 @@ h2{
 }
 
 .button{
-    width: 212px;
+    width: 106px;
     height: 40px;
     color: white;
     font-size: 20px;
@@ -110,6 +131,52 @@ h2{
 
 .cancel{
     background-color: #F25022;
+}
+
+//css para parte de edição dos generos
+
+.registerGenre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    all: unset;
+    border-bottom: 2px solid #0085FF;
+    font-size: 16px;
+    color: #AEA9A9;
+    margin: 1rem 2.3rem;
+    padding-bottom: 0.4rem;
+}
+
+.chooseAndChangeGenre{
+    display: flex;
+    align-items: center;
+}
+
+select{
+    height: 1.5rem;
+}
+
+.genresContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+.editGenres{
+    width: 50%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    
+}
+
+.butonsEditGenre{
+    display: flex;
+    margin-top: 1rem;
 }
 
 `
