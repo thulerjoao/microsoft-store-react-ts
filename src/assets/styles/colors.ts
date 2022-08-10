@@ -5,6 +5,5 @@ export const colors = {
     borderColor: "#ffffff", // branco das bordas
     textPrimaryColor: "#000000", // preto das letras
     textSecondaryColor: "#ffffff", // branco das letras
-    activeColor: "#329C00", //verde de fundo
-    
+    activeColor: "#329C00", //verde de fundo 
 }
