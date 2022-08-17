@@ -1,16 +1,10 @@
 import * as Style from "./style"
 import LoginCard from "../../components/LoginCard"
-import { Dispatch, SetStateAction } from "react";
 
-interface LoginProps{
-    logged:boolean;
-    setLogged:Dispatch<SetStateAction<boolean>>
-}
-
-const Login = ({logged, setLogged}:LoginProps)  =>{
+const Login = ()  =>{
     return(
         <Style.LoginContainer>
-            <LoginCard logged={logged} setLogged={setLogged}/> 
+            <LoginCard/> 
         </Style.LoginContainer>
     )
 }

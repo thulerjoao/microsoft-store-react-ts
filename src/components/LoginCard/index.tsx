@@ -1,39 +1,28 @@
 import * as Style from "./style"
 import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
-import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios"
+import { useAuth } from "../../contexts/auth";
+import { useState } from "react";
 
-interface LoginProps{
-    logged:boolean;
-    setLogged:Dispatch<SetStateAction<boolean>>
-}
 
-const LoginCard = ({logged, setLogged}:LoginProps)=> {
-const navegate = useNavigate()
+const LoginCard = ()=> {
 
+    const {login} = useAuth()
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
     const handleLogin = ()=>{
         if(email!=="" && password!==""){
-
             const data = {
                 email, 
                 password
             }
-
             return axios.post("https://spr-nest-microsoft-store.herokuapp.com/auth",
                  data).then((res)=>{
-                    localStorage.setItem("token", res.data.token)
-                    localStorage.setItem("user", JSON.stringify(res.data.user))
-                    setLogged(true);
-                    navegate("/home");
-                    toast.success("login bem sucedido")
+                    login({token: res.data.token, user: res.data.user}) 
                  }).catch(()=>toast.error("Senha ou Email inválidos"))
-
         }else{
-            toast.error("Senha ou Email inválidos")
+            toast.error("Insira usuário e senha")
         }
     }
 

@@ -6,11 +6,8 @@ import { Dispatch, SetStateAction, useState } from "react"
 import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
 
-interface HomeProps{
-    setLogged:Dispatch<SetStateAction<boolean>>
-}
 
-const Home = ({setLogged}:HomeProps) => {
+const Home = () => {
     
     const [favoritClick, setFavoritClick] = useState<boolean>(false) //codigo referente ao buscar favoritos
     const [selectedGenre, setSelectedGenre] = useState<Genres>(mockedGenres[0]) //codigo referente ao buscar por genero
@@ -28,7 +25,7 @@ const Home = ({setLogged}:HomeProps) => {
 
     return(
         <Styled.HomeContainer>
-            <Header setLogged={setLogged}/>
+            <Header/>
             <Styled.GenresNavegationBar>
                 <div className="filters">
                 <div className="genres">

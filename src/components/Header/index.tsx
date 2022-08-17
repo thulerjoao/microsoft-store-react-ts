@@ -1,20 +1,13 @@
 import * as Styled from "./style"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
-import { Dispatch, SetStateAction } from "react"
+import { useAuth } from "../../contexts/auth"
 
-interface HeaderProps{
-    setLogged:Dispatch<SetStateAction<boolean>>
-}
 
-const Header = ({setLogged}:HeaderProps) =>{
+const Header = () =>{
 const navegate = useNavigate()
 
-const handleLogout = ()=>{
-    localStorage.clear();
-    setLogged(false);  
-    navegate("/");
-}
+const { logout } = useAuth()
 
     return(
         <Styled.HeaderContainer>
@@ -28,7 +21,7 @@ const handleLogout = ()=>{
                     <div className="nameEmail">
                         <p className="userName">João Pedro Thuler Lima</p>
                         <p className="email">thuler_lima@hotmail.com</p> 
-                        <button onClick={()=>handleLogout()}>Sair</button>
+                        <button onClick={logout}>Sair</button>
                     </div>   
                 </div>
                 <div className="cardTwo">
