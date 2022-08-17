@@ -5,6 +5,7 @@ export const GamesList = styled.main`
 ${({theme})=> css`
 
         width: 95%;
+        hei
         margin: 1rem 0;
         padding-top: 1rem;
         background-color: ${theme.colors.opacityGreyBackground};
