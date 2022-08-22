@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 export const SettingsCardContainer = styled.div`
-    width: 1083px;
-    height: 880px;
+    width: 67.7rem;
+    height: 55rem;
     background-color: white;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 
     .imageMicrosoft{
-    width: 155px;
-    height: 80px;
+    width: 9.7rem;
+    height: 5rem;
     margin-left: 2rem;
     margin-top: 0.5rem;
     }
 
 h2{
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 400;
     margin: 0.5rem 0;
     margin-left: 2.2rem; 
@@ -35,7 +35,7 @@ h2{
 }
 
 .plusCard{
-    min-width: 230px;
+    min-width: 14.38rem;
     height: 20rem;
     border: 1px solid black;
     border-style: dotted;
@@ -68,7 +68,7 @@ h2{
 }
 
 .cardImage{
-    width: 230px;
+    width: 14.38rem;
     height: 20rem;
 }
 
@@ -92,7 +92,7 @@ header{
 
 .settings{
     width: 100%;
-    height: 44px;
+    height: 2.75rem;
     background-color: #F3F3F3;
     color: #808080;
     padding-left: 1rem;
@@ -114,10 +114,10 @@ header{
 }
 
 .button{
-    width: 106px;
-    height: 40px;
+    width: 6.625rem;
+    height: 2.5rem;
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 300;
     display: flex;
     justify-content: center;
@@ -144,7 +144,7 @@ header{
 input{
     all: unset;
     border-bottom: 2px solid #0085FF;
-    font-size: 16px;
+    font-size: 1rem;
     color: #AEA9A9;
     margin: 1rem 2.3rem;
     padding-bottom: 0.4rem;
