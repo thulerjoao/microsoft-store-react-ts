@@ -2,7 +2,7 @@ import Header from "../../components/Header"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
 import { mockedGames } from "../../mocks"
-import { useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
 
@@ -52,9 +52,9 @@ const Home = () => {
                         value={search}
                         />
                     </div>
-                    <Styled.FavoriteButton active={favoritClick} onClick={()=>{
-                        favoritClick===true?setFavoritClick(false):setFavoritClick(true)
-                    }}>Mostrar Favoritos</Styled.FavoriteButton>
+                    <Styled.FavoriteButton active={favoritClick} 
+                        onClick={()=>{setFavoritClick(!favoritClick)}
+                    }>Mostrar Favoritos</Styled.FavoriteButton>
                 </div>
                 </div>
             </Styled.GenresNavegationBar>

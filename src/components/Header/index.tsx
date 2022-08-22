@@ -1,9 +1,13 @@
 import * as Styled from "./style"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
+import { useAuth } from "../../contexts/auth"
+
 
 const Header = () =>{
 const navegate = useNavigate()
+
+const { logout } = useAuth()
 
     return(
         <Styled.HeaderContainer>
@@ -17,7 +21,7 @@ const navegate = useNavigate()
                     <div className="nameEmail">
                         <p className="userName">João Pedro Thuler Lima</p>
                         <p className="email">thuler_lima@hotmail.com</p> 
-                        <button onClick={()=> navegate("/")}>Sair</button>
+                        <button onClick={logout}>Sair</button>
                     </div>   
                 </div>
                 <div className="cardTwo">

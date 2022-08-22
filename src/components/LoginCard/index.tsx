@@ -1,11 +1,30 @@
 import * as Style from "./style"
 import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
-
+import axios from "axios"
+import { useAuth } from "../../contexts/auth";
+import { useState } from "react";
 
 
 const LoginCard = ()=> {
-const navegate = useNavigate()
+
+    const {login} = useAuth()
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+
+    const handleLogin = ()=>{
+        if(email!=="" && password!==""){
+            const data = {
+                email, 
+                password
+            }
+            return axios.post("https://spr-nest-microsoft-store.herokuapp.com/auth",
+                 data).then((res)=>{
+                    login({token: res.data.token, user: res.data.user}) 
+                 }).catch(()=>toast.error("Senha ou Email inválidos"))
+        }else{
+            toast.error("Insira usuário e senha")
+        }
+    }
 
     return(
         <Style.LoginCardContainer>
@@ -15,14 +34,16 @@ const navegate = useNavigate()
                     <h2>Entrar</h2>
                     <div>
                         
-                        <input type="text" placeholder="Email" required/>
-                        <input type="password" placeholder="Senha" required/>
+                        <input type="text" placeholder="Email" required onChange={(e)=> setEmail(e.target.value)}/>
+                        <input type="password" placeholder="Senha" required onChange={(e)=> setPassword(e.target.value)}/>
                         
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>
                             <p className="createLink" onClick={()=> toast.error('Sessão em desenvolvimento')}>Crie Uma!</p>
                         </div>
-                        <p className="nextButton" onClick={()=> navegate("/home")}>Próximo</p>
+                        <p className="nextButton" onClick={()=>{handleLogin()}
+                            }>Próximo</p>
+                            
                     </div>
                 </div>
             

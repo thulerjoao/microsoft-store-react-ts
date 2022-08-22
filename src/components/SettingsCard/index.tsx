@@ -1,6 +1,6 @@
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
-import { Game, Genres } from "../../types"
+import { Game } from "../../types"
 import * as Style from "./style"
 import { mockedGenres } from "../../mocks/index"
 
