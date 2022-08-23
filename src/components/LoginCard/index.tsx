@@ -3,20 +3,36 @@ import toast from "react-hot-toast"
 import axios from "axios"
 import { useAuth } from "../../contexts/auth";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
+
+interface loginData{
+    email:string,
+    password:string
+}
+
+const loginSchema = yup.object().shape({
+    email:yup
+    .string()
+    .email("Email inválido")
+    .required("Email deve ser preenchido"),
+    password:yup
+    .string()
+    .required("Senha obrigatória")
+    .min(8, "Senha muito curta")
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/, "A senha deve conter um caracter especial, um número e ao menos uma letra maiúscula")
+})
 
 
 const LoginCard = ()=> {
 
+    const { register, handleSubmit, formState:{ errors }} = useForm<loginData>({ resolver: yupResolver(loginSchema)}) 
     const {login} = useAuth()
-    const [email, setEmail] = useState<string>("")
-    const [password, setPassword] = useState<string>("")
 
-    const handleLogin = ()=>{
-        if(email!=="" && password!==""){
-            const data = {
-                email, 
-                password
-            }
+    const handleLogin = (data:loginData)=>{
+        if(data.email!=="" && data.password!==""){
+            
             return axios.post("https://spr-nest-microsoft-store.herokuapp.com/auth",
                  data).then((res)=>{
                     login({token: res.data.token, user: res.data.user}) 
@@ -33,17 +49,16 @@ const LoginCard = ()=> {
                     <img src="https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png" />
                     <h2>Entrar</h2>
                     <div>
-                        
-                        <input type="text" placeholder="Email" required onChange={(e)=> setEmail(e.target.value)}/>
-                        <input type="password" placeholder="Senha" required onChange={(e)=> setPassword(e.target.value)}/>
-                        
+                        <form onSubmit={handleSubmit(handleLogin)}>
+                        <input type="text" placeholder="Email"{...register("email")}/>
+                        <input type="password" placeholder="Senha" {...register("password")}/>
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>
                             <p className="createLink" onClick={()=> toast.error('Sessão em desenvolvimento')}>Crie Uma!</p>
                         </div>
-                        <p className="nextButton" onClick={()=>{handleLogin()}
-                            }>Próximo</p>
-                            
+                        <button className="nextButton" type="submit">Próximo</button>
+                        {(<Style.ErrorMessage>{errors.email?.message || errors.password?.message}</Style.ErrorMessage>)}    
+                        </form>
                     </div>
                 </div>
             

@@ -21,6 +21,7 @@ input{
     margin: 1rem 2.3rem;
     padding-left: 1.2rem;
     padding-bottom: 0.4rem;
+    width: 83%;
 }
 
 .login{
@@ -80,6 +81,16 @@ h2{
     cursor: pointer;
     margin-top: 7rem;
     margin-left: 20rem;
+    text-decoration: none;
+    border: none;
 }
+`
 
+export const ErrorMessage = styled.p`
+    color: red;
+    align-self: center;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
 `
