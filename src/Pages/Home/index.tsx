@@ -4,7 +4,7 @@ import * as Styled from "./styles"
 import { useState } from "react"
 import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
-import { GamesProvider, useGames } from "../../contexts/games"
+import { useGames } from "../../contexts/games"
 
 
 const Home = () => {

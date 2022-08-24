@@ -5,7 +5,7 @@ import { mockedGames } from "../../mocks"
 const Settings = ()  =>{
     return(
         <Style.SettingsContainer>
-            <SettingsCard list={mockedGames}/> 
+            <SettingsCard/> 
         </Style.SettingsContainer>
     )
 }

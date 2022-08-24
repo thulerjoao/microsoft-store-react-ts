@@ -2,7 +2,6 @@ import * as Style from "./style"
 import toast from "react-hot-toast"
 import { api } from "../../services/index"
 import { useAuth } from "../../contexts/auth";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
