@@ -22,6 +22,7 @@ input{
     padding-left: 1.2rem;
     padding-bottom: 0.4rem;
     width: 83%;
+    text-decoration: none;
 }
 
 .login{

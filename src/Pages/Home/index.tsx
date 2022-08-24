@@ -2,12 +2,16 @@ import Header from "../../components/Header"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
 import { mockedGames } from "../../mocks"
-import { Dispatch, SetStateAction, useState } from "react"
+import { useEffect, useState } from "react"
 import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
+import axios from "axios"
 
 
 const Home = () => {
+
+    // let genres:Genres[] = []
+    // useEffect(()=>{axios.get('https://spr-nest-microsoft-store.herokuapp.com/genre').then((res)=> genres=res)}, [])
     
     const [favoritClick, setFavoritClick] = useState<boolean>(false) //codigo referente ao buscar favoritos
     const [selectedGenre, setSelectedGenre] = useState<Genres>(mockedGenres[0]) //codigo referente ao buscar por genero
@@ -30,7 +34,7 @@ const Home = () => {
                 <div className="filters">
                 <div className="genres">
                     <p>Gêneros:</p>
-                    {mockedGenres.map((element)=>{
+                    {mockedGenres.map((element)=>{ 
                         return(
                             <Styled.GenreNavigatton 
                             active={element.title === selectedGenre.title} 

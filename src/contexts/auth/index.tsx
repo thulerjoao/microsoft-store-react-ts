@@ -2,7 +2,7 @@ import { createContext, useContext, ReactNode, useState, useEffect } from "react
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../types";
-import axios from "axios";
+import { api } from "../../services/index"
 
 interface AuthProviderProps{
     children: ReactNode
@@ -37,7 +37,8 @@ export const AuthProvider = ({children}:AuthProviderProps)=>{
             }
         }
 
-        axios.get(`https://spr-nest-microsoft-store.herokuapp.com/user/${user.id}`,
+        
+        api.get(`/user/${user.id}`,
         heardes).then(()=>{
             setLogged(true);
             navegate("/home")
