@@ -1,14 +1,14 @@
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
-import { Game } from "../../types"
 import * as Style from "./style"
-import { mockedGenres } from "../../mocks/index"
 import { useGames } from "../../contexts/games"
+import { useGenres } from "../../contexts/genres"
 
 
 const SettingsCard = ()=> {
     const navegate = useNavigate()
     const { games } = useGames()
+    const { genres } = useGenres()
 
     return(
         <Style.SettingsCardContainer>
@@ -46,7 +46,7 @@ const SettingsCard = ()=> {
                                 <div className="chooseAndChangeGenre">
                                     <input type="text" placeholder="Atualizar"/>
                                     <select >
-                                        {mockedGenres.map((element)=><option>{element.title}</option>)}
+                                        {genres.map((element)=><option key={element.id}>{element.name}</option>)}
                                     </select>
                                 </div>
                             <div className="butonsEditGenre">

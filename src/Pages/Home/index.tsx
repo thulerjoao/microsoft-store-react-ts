@@ -2,21 +2,22 @@ import Header from "../../components/Header"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
 import { useState } from "react"
-import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
 import { useGames } from "../../contexts/games"
+import { useGenres } from "../../contexts/genres"
 
 
 const Home = () => {
 
     const { games } = useGames()
+    const { genres } = useGenres()
     
     const [favoritClick, setFavoritClick] = useState<boolean>(false) //codigo referente ao buscar favoritos
-    const [selectedGenre, setSelectedGenre] = useState<Genres>(mockedGenres[0]) //codigo referente ao buscar por genero
+    const [selectedGenre, setSelectedGenre] = useState<Genres>(genres[0]) //codigo referente ao buscar por genero
     const [search, setSearch] = useState<string>("") //codigo referente ao buscar por nome
 
-    const filterElemts:Game[] = selectedGenre.title==="Todos"?games
-            :games.filter((element) => element.genreName===selectedGenre.title) //codigo referente ao buscar por genero
+    const filterElemts:Game[] = selectedGenre.name==="Todos"?games
+            :games.filter((element) => element.genres[0].name===selectedGenre.name) //codigo referente ao buscar por genero
 
     const filteredGames:Game[] = favoritClick===false?(filterElemts)
             :filterElemts.filter((element)=> element.isfavorite===true)
@@ -32,12 +33,13 @@ const Home = () => {
                 <div className="filters">
                 <div className="genres">
                     <p>Gêneros:</p>
-                    {mockedGenres.map((element)=>{ 
+                    {genres.map((element)=>{ 
                         return(
                             <Styled.GenreNavigatton 
-                            active={element.title === selectedGenre.title} 
-                            onClick={() => setSelectedGenre(element)}>
-                                {element.title}
+                            key= {element.id}
+                            active={element.name === selectedGenre.name} 
+                            onClick={() => {setSelectedGenre(element);console.log(genres)}}>
+                                {element.name}
                             </Styled.GenreNavigatton>
                         )
                     })}
