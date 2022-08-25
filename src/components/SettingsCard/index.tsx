@@ -3,15 +3,12 @@ import { useNavigate } from "react-router-dom"
 import { Game } from "../../types"
 import * as Style from "./style"
 import { mockedGenres } from "../../mocks/index"
-
-interface GameListProps {
-    list: Game[]
-}
+import { useGames } from "../../contexts/games"
 
 
-
-const SettingsCard = ({ list }:GameListProps,)=> {
+const SettingsCard = ()=> {
     const navegate = useNavigate()
+    const { games } = useGames()
 
     return(
         <Style.SettingsCardContainer>
@@ -28,9 +25,9 @@ const SettingsCard = ({ list }:GameListProps,)=> {
                             <p>Cadastrar Jogo</p>
                         </div>
                         <div className="cardMapped">
-                            {list.map((element, index)=>{
+                            {games.map((element)=>{
                                 return(
-                                <div key={index} className="eachCard">                                    
+                                <div key={element.id} className="eachCard">                                    
                                     <img src={element.coverImageUrl} alt="Imagem do Jogo" className="cardImage"/>
                                     <p>{element.title}</p> 
                                 </div>

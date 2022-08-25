@@ -1,8 +1,7 @@
 import * as Style from "./style"
 import toast from "react-hot-toast"
-import axios from "axios"
+import { api } from "../../services/index"
 import { useAuth } from "../../contexts/auth";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -33,7 +32,7 @@ const LoginCard = ()=> {
     const handleLogin = (data:loginData)=>{
         if(data.email!=="" && data.password!==""){
             
-            return axios.post("https://spr-nest-microsoft-store.herokuapp.com/auth",
+            return api.post("/auth",
                  data).then((res)=>{
                     login({token: res.data.token, user: res.data.user}) 
                  }).catch(()=>toast.error("Senha ou Email inválidos"))

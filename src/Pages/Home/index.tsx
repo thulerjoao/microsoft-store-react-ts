@@ -1,20 +1,22 @@
 import Header from "../../components/Header"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
-import { mockedGames } from "../../mocks"
-import { Dispatch, SetStateAction, useState } from "react"
+import { useState } from "react"
 import { mockedGenres } from "../../mocks"
 import { Game, Genres } from "../../types"
+import { useGames } from "../../contexts/games"
 
 
 const Home = () => {
+
+    const { games } = useGames()
     
     const [favoritClick, setFavoritClick] = useState<boolean>(false) //codigo referente ao buscar favoritos
     const [selectedGenre, setSelectedGenre] = useState<Genres>(mockedGenres[0]) //codigo referente ao buscar por genero
     const [search, setSearch] = useState<string>("") //codigo referente ao buscar por nome
 
-    const filterElemts:Game[] = selectedGenre.title==="Todos"?mockedGames
-            :mockedGames.filter((element) => element.genreName===selectedGenre.title) //codigo referente ao buscar por genero
+    const filterElemts:Game[] = selectedGenre.title==="Todos"?games
+            :games.filter((element) => element.genreName===selectedGenre.title) //codigo referente ao buscar por genero
 
     const filteredGames:Game[] = favoritClick===false?(filterElemts)
             :filterElemts.filter((element)=> element.isfavorite===true)
@@ -30,7 +32,7 @@ const Home = () => {
                 <div className="filters">
                 <div className="genres">
                     <p>Gêneros:</p>
-                    {mockedGenres.map((element)=>{
+                    {mockedGenres.map((element)=>{ 
                         return(
                             <Styled.GenreNavigatton 
                             active={element.title === selectedGenre.title} 

@@ -13,8 +13,8 @@ const GameList = ({ list }:GameListProps)=>{
         <Styled.GamesList>
             <p className="titleList">Lista os Jogos</p>
             <div>
-            {list.map((element, index)=>
-            <GameCard game={element} key={index}/>
+            {list.map((element)=>
+            <GameCard game={element} key={element.id}/>
             )}
             </div>
         </Styled.GamesList>
