@@ -2,11 +2,11 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import * as Style from "./style"
 
-const CreateUserCard = () =>{
+const CreateProfileCard = () =>{
 
-    const [profilePicture, setProfilePicture]= useState<string>("https://ovicio.com.br/wp-content/uploads/2022/04/20220417-vader01-ovicio-555x555.jpg")
+    const [profilePicture, setProfilePicture]= useState<string>("https://static.vecteezy.com/ti/vetor-gratis/p1/1840618-imagem-perfil-icone-masculino-icone-humano-ou-pessoa-sinal-e-simbolo-gr%C3%A1tis-vetor.jpg")
 
-    if(profilePicture==="") setProfilePicture("https://ovicio.com.br/wp-content/uploads/2022/04/20220417-vader01-ovicio-555x555.jpg")
+    if(profilePicture==="") setProfilePicture("https://static.vecteezy.com/ti/vetor-gratis/p1/1840618-imagem-perfil-icone-masculino-icone-humano-ou-pessoa-sinal-e-simbolo-gr%C3%A1tis-vetor.jpg")
 
     const navegate= useNavigate()
 
@@ -32,4 +32,4 @@ const CreateUserCard = () =>{
     )
 }
 
-export default CreateUserCard
+export default CreateProfileCard
