@@ -5,6 +5,7 @@ import { useAuth } from "../../contexts/auth";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useNavigate } from "react-router-dom";
 
 interface loginData{
     email:string,
@@ -23,11 +24,11 @@ const loginSchema = yup.object().shape({
     .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/, "A senha deve conter um caracter especial, um número e ao menos uma letra maiúscula")
 })
 
-
 const LoginCard = ()=> {
 
     const { register, handleSubmit, formState:{ errors }} = useForm<loginData>({ resolver: yupResolver(loginSchema)}) 
     const {login} = useAuth()
+    const navegate = useNavigate()
 
     const handleLogin = (data:loginData)=>{
         if(data.email!=="" && data.password!==""){
@@ -53,7 +54,7 @@ const LoginCard = ()=> {
                         <input type="password" placeholder="Senha" {...register("password")}/>
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>
-                            <p className="createLink" onClick={()=> toast.error('Sessão em desenvolvimento')}>Crie Uma!</p>
+                            <p className="createLink" onClick={()=>navegate("/createUser")}>Crie Uma!</p>
                         </div>
                         <button className="nextButton" type="submit">Próximo</button>
                         {(<Style.ErrorMessage>{errors.email?.message || errors.password?.message}</Style.ErrorMessage>)}    

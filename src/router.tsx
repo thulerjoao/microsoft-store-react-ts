@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom"
 import { useAuth } from "./contexts/auth"
+import CreateUser from "./Pages/CreateUser"
 import Home from "./Pages/Home"
 import Login from "./Pages/Login"
 import Settings from "./Pages/Settings"
@@ -17,7 +18,10 @@ const Router = () =>{
                 <Route path="/settings" element={ <Settings/> }/>
                 </>
                 :
+                <>
                 <Route path="/" element={<Login/>}/>
+                <Route path="/createUser" element={<CreateUser/>}/>
+                </>
             }
             <Route path="*" element={<Navigate to={logged?"/home":"/"}/>}/>  
         </Routes>
