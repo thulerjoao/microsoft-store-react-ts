@@ -54,7 +54,7 @@ const LoginCard = ()=> {
                         <input type="password" placeholder="Senha" {...register("password")}/>
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>
-                            <p className="createLink" onClick={()=>navegate("/registeGame")}>Crie Uma!</p>
+                            <p className="createLink" onClick={()=>navegate("/createUser")}>Crie Uma!</p>
                         </div>
                         <button className="nextButton" type="submit">Próximo</button>
                         {(<Style.ErrorMessage>{errors.email?.message || errors.password?.message}</Style.ErrorMessage>)}    

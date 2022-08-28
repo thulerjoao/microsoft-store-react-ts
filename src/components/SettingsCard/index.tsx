@@ -20,14 +20,14 @@ const SettingsCard = ()=> {
                     <img className="imageMicrosoft" src="https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png" />
                     <h2>Gerenciar Jogos</h2>
                     <div className="cardList">
-                        <div className="plusCard">
+                        <div className="plusCard" onClick={()=> navegate("/registeGame")}>
                             <p>+</p>
                             <p>Cadastrar Jogo</p>
                         </div>
                         <div className="cardMapped">
                             {games.map((element)=>{
                                 return(
-                                <div key={element.id} className="eachCard">                                    
+                                <div key={element.id} className="eachCard" onClick={()=>{navegate("/editGame")}}>                                    
                                     <img src={element.coverImageUrl} alt="Imagem do Jogo" className="cardImage"/>
                                     <p>{element.title}</p> 
                                 </div>

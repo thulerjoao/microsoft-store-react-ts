@@ -4,7 +4,7 @@ import { useGenres } from "../../contexts/genres"
 import * as Style from "./style"
 
 
-const RegisteGameCard = () =>{
+const EditGameCard = () =>{
 
     const navegate= useNavigate()
     const {genres}= useGenres()
@@ -13,7 +13,7 @@ const RegisteGameCard = () =>{
     if(gameImg==="") setGameImg("https://t.ctcdn.com.br/_ALSW0x5t7hbdO7pVxYqXW84Auc=/512x288/smart/filters:format(webp)/i570476.png")
 
     return(
-        <Style.RegisteGameCardContainer>
+        <Style.EditGameCardContainer>
 
                 <header>
                     <p className="topPhrase">Cadastro</p>
@@ -46,14 +46,15 @@ const RegisteGameCard = () =>{
                     </form>
                     <div className="description">
                         <textarea  placeholder="Descrição..." id="msg" name="msg"></textarea>   
-                    </div>
-                        
-                    
+                    </div>  
+                <div className="buttons">
+                    <button className="registerButton" type="submit">Atualizar</button>
+                    <button className="deleteButton" type="submit">Excluir</button>
                 </div>
-                <button>Cadastrar</button>
+                </div>
             
-        </Style.RegisteGameCardContainer>
+        </Style.EditGameCardContainer>
     )
 }
 
-export default RegisteGameCard
+export default EditGameCard

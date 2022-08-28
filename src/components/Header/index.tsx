@@ -36,7 +36,7 @@ const user = JSON.parse(localStorage.getItem("user") || "")
                         </svg>
                     </div>
                     <div className="line">
-                        <p onClick={()=> toast.error('Sessão em desenvolvimento')}>Gerenciamento de usuário</p>
+                        <p onClick={()=> navegate("/editProfile")}>Gerenciar perfil</p>
                         <p onClick={()=>navegate("/settings")}>Cadastrar/ Editar Jogo</p>                        
                     </div>   
                 </div>

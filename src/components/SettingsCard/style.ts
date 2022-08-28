@@ -113,7 +113,7 @@ header{
     
 }
 
-button{
+.button{
     width: 6.625rem;
     height: 2.5rem;
     color: white;
@@ -125,6 +125,7 @@ button{
     cursor: pointer;
     margin: 0 2rem;    
 }
+
 .save{
     background-color: #7FBA00;
 }
