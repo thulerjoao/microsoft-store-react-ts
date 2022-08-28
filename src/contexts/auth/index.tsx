@@ -1,7 +1,7 @@
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { User } from "../../types";
+import { Genres, User } from "../../types";
 import { api } from "../../services/index"
 
 interface AuthProviderProps{
@@ -16,7 +16,7 @@ interface loginParams{
 interface AuthProviderData{
     logged:boolean,
     login: (param:loginParams)=> void,
-    logout: ()=> void
+    logout: ()=> void,
 }
 
 const AuthContext = createContext<AuthProviderData>({} as AuthProviderData)

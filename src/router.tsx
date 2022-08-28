@@ -4,6 +4,7 @@ import CreateProfile from "./Pages/CreateProfile"
 import CreateUser from "./Pages/CreateUser"
 import Home from "./Pages/Home"
 import Login from "./Pages/Login"
+import RegisteGame from "./Pages/RegisteGame"
 import SelectProfile from "./Pages/SelectProfile"
 import Settings from "./Pages/Settings"
 
@@ -18,6 +19,7 @@ const Router = () =>{
                 <>
                 <Route path="/home" element={ <Home/> }/>
                 <Route path="/settings" element={ <Settings/> }/>
+                
                 </>
                 :
                 <>
@@ -25,6 +27,7 @@ const Router = () =>{
                 <Route path="/createUser" element={<CreateUser/>}/>
                 <Route path="/createProfile" element={<CreateProfile/>}/>
                 <Route path="/selectProfile" element={<SelectProfile/>}/>
+                <Route path="/registeGame" element={<RegisteGame/>}/>
                 </>
             }
             <Route path="*" element={<Navigate to={logged?"/home":"/"}/>}/>  

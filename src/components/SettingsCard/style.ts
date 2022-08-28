@@ -113,7 +113,7 @@ header{
     
 }
 
-.button{
+button{
     width: 6.625rem;
     height: 2.5rem;
     color: white;

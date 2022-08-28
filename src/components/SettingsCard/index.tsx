@@ -55,7 +55,6 @@ const SettingsCard = ()=> {
                             </div>   
                             </div>
                         </div>
-
                     </div>
                     
                 </div>
