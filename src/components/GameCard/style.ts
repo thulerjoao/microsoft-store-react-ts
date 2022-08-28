@@ -14,6 +14,7 @@ ${({ theme })=> css`
     margin: 1rem;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
 
     .gameCardDiv{
     background-color: white;

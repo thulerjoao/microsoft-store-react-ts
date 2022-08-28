@@ -8,6 +8,7 @@ const Header = () =>{
 const navegate = useNavigate()
 
 const { logout } = useAuth()
+const user = JSON.parse(localStorage.getItem("user") || "")
 
     return(
         <Styled.HeaderContainer>
@@ -16,11 +17,11 @@ const { logout } = useAuth()
             <section className="cards">
                 <div className="cardOne">
                     <div className="ball">
-                        J
+                        {user.name[0].toUpperCase()}
                     </div>              
                     <div className="nameEmail">
-                        <p className="userName">João Pedro Thuler Lima</p>
-                        <p className="email">thuler_lima@hotmail.com</p> 
+                        <p className="userName">{user.name}</p>
+                        <p className="email">{user.email}</p> 
                         <button onClick={logout}>Sair</button>
                     </div>   
                 </div>
@@ -35,8 +36,8 @@ const { logout } = useAuth()
                         </svg>
                     </div>
                     <div className="line">
-                        <p onClick={()=> toast.error('Sessão em desenvolvimento')}>Gerenciamento de usuário</p>
-                        <p onClick={()=>navegate("/settings")}>Cadastrar/ Editar Jogo</p>
+                        <p onClick={()=> navegate("/editProfile")}>Gerenciar perfil</p>
+                        <p onClick={()=>navegate("/settings")}>Cadastrar/ Editar Jogo</p>                        
                     </div>   
                 </div>
             </section>

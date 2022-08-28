@@ -1,6 +1,6 @@
 import * as T from "../types";
 
-export const mockedGames: T.Game[] = [
+export const mockedGames: any[] = [
     {
       id: "3df26203-5a36-402b-ac7d-437339db15bf",
       title: "Grand Thef Auto 5",
@@ -248,37 +248,37 @@ export const mockedGames: T.Game[] = [
   export const mockedGenres: T.Genres[] = [
     {
       id: "rt475c07-a2e4-495c-9e0f-5c10cc971d11",
-      title: "Todos",
+      name: "Todos",
       createdAt: new Date(),
       updatedAt: new Date(),
     } as const,
     {
       id: "ef215c07-a2e4-495c-9e0f-5c10cc971d11",
-      title: "Mundo Aberto",
+      name: "Mundo Aberto",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       id: "a6e86fe9-ca7f-40a3-9b95-331e749038f1",
-      title: "Aventura",
+      name: "Aventura",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       id: "4c86eac1-f2b9-4bdf-8dc9-21bcd789da4f",
-      title: "FPS",
+      name: "FPS",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
         id: "5c86eac1-f2b9-4bdf-8dc9-21bcd789da4f",
-        title: "Corrida",
+        name: "Corrida",
         createdAt: new Date(),
         updatedAt: new Date(),
     },
     {
         id: "6c86eac1-f2b9-4bdf-8dc9-21bcd789da4f",
-        title: "Battle Royale",
+        name: "Battle Royale",
         createdAt: new Date(),
         updatedAt: new Date(),
     },

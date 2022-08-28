@@ -1,14 +1,14 @@
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
-import { Game } from "../../types"
 import * as Style from "./style"
-import { mockedGenres } from "../../mocks/index"
 import { useGames } from "../../contexts/games"
+import { useGenres } from "../../contexts/genres"
 
 
 const SettingsCard = ()=> {
     const navegate = useNavigate()
     const { games } = useGames()
+    const { genres } = useGenres()
 
     return(
         <Style.SettingsCardContainer>
@@ -20,14 +20,14 @@ const SettingsCard = ()=> {
                     <img className="imageMicrosoft" src="https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png" />
                     <h2>Gerenciar Jogos</h2>
                     <div className="cardList">
-                        <div className="plusCard">
+                        <div className="plusCard" onClick={()=> navegate("/registeGame")}>
                             <p>+</p>
                             <p>Cadastrar Jogo</p>
                         </div>
                         <div className="cardMapped">
                             {games.map((element)=>{
                                 return(
-                                <div key={element.id} className="eachCard">                                    
+                                <div key={element.id} className="eachCard" onClick={()=>{navegate("/editGame")}}>                                    
                                     <img src={element.coverImageUrl} alt="Imagem do Jogo" className="cardImage"/>
                                     <p>{element.title}</p> 
                                 </div>
@@ -46,7 +46,7 @@ const SettingsCard = ()=> {
                                 <div className="chooseAndChangeGenre">
                                     <input type="text" placeholder="Atualizar"/>
                                     <select >
-                                        {mockedGenres.map((element)=><option>{element.title}</option>)}
+                                        {genres.map((element)=><option key={element.id}>{element.name}</option>)}
                                     </select>
                                 </div>
                             <div className="butonsEditGenre">
@@ -55,7 +55,6 @@ const SettingsCard = ()=> {
                             </div>   
                             </div>
                         </div>
-
                     </div>
                     
                 </div>

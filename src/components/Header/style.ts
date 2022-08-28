@@ -55,7 +55,7 @@ ${({theme})=> css`
         padding: 0.8rem;
         width: 1.6rem;
         height: 1.6rem;
-        border-radius: 25px;
+        border-radius: 50%;
         font-weight: 900;
         font-size: 1.3rem;
         align-items: center;

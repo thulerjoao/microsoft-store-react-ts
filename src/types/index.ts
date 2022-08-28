@@ -7,7 +7,11 @@ export interface Game{
   imdbScore: number;
   trailerYoutubeUrl?: string;
   gameplayYoutubeUrl?: string;
-  genreName?: string;
+  genres: [{
+    name:string
+    createdAt: Date;
+    updatedAt: Date;
+  }];
   isfavorite?:boolean;
   createdAt: Date;
   updatedAt: Date
@@ -31,7 +35,7 @@ export interface Favorite{
 
 export interface Genres{
   id: string;
-  title: string;
+  name: string;
   createdAt: Date;
   updatedAt: Date;
 }

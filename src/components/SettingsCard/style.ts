@@ -125,6 +125,7 @@ header{
     cursor: pointer;
     margin: 0 2rem;    
 }
+
 .save{
     background-color: #7FBA00;
 }
