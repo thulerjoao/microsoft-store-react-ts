@@ -149,6 +149,7 @@ img{
     height: 2rem;
     position: absolute;
     right: 3rem;
+    z-index: 1;
 
     :hover{
         transform: scale(1.1);

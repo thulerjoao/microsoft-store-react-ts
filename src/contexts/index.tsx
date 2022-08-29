@@ -5,7 +5,7 @@ import theme from "../assets/styles/theme";
 import { AuthProvider } from "./auth";
 import { GamesProvider } from "./games";
 import { GenresProvider } from "./genres";
-import { ProfilesProvider } from "./profile"
+import { ProfilesProvider } from "./genres copy"
 
 interface ProviderProps {
   children: ReactNode;

@@ -9,12 +9,12 @@ export interface Game{
   gameplayYoutubeUrl?: string;
   genres: [{
     name:string
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
   }];
   isfavorite?:boolean;
-  createdAt: Date;
-  updatedAt: Date
+  createdAt?: Date;
+  updatedAt?: Date
 }
 
 export interface User{
@@ -22,8 +22,8 @@ export interface User{
   title: string;
   email: string;
   password: string;
-  createdAt: Date;
-  updatedAt: Date
+  createdAt?: Date;
+  updatedAt?: Date
 }
 
 export interface Profile{

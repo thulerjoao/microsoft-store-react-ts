@@ -3,12 +3,74 @@ import { useNavigate } from "react-router-dom"
 import * as Style from "./style"
 import { useGames } from "../../contexts/games"
 import { useGenres } from "../../contexts/genres"
+import { useEffect, useState } from "react"
+import { api } from "../../services"
 
 
 const SettingsCard = ()=> {
     const navegate = useNavigate()
     const { games } = useGames()
     const { genres } = useGenres()
+    const token = localStorage.getItem("token")
+
+    const headers = {
+        headers: {
+            Authorization:`Bearer ${token}`
+        }
+    }
+
+    const [genre,setGenre] = useState<string>("")
+    const [newGenre,setNewGenre] = useState<string>("")
+    const [selectValue, setSelectValue] = useState<string>("")
+
+    interface GenreData{
+        name:string
+    }
+
+    const genreData:GenreData ={
+        name: genre
+    }
+
+    
+    const handleGenrePost = ()=>{
+        if(genre!==""){
+            api.post("/genre", genreData, headers)
+            .then(res=>toast.success("Genero criado!"))
+            .catch(err=>toast.error("Erro ao cadastrar"))
+        }else{
+            toast.error("Nome de gênero necessário")
+        }
+    }
+
+    // OBS: AO ATUALIZAR OS GENEROS EXISTENTES(CÓDIGO ABAIXO), OS GENEROS CADASTRADOS EM JOGOS DAVAM ERRO NA APLICAÇÃO!!!
+
+    // const newGenreData:GenreData ={
+    //     name: newGenre
+    // }
+
+    // const handleGenrePatch = () =>{
+    //     if(games.filter((element)=>element.genres[0].name===selectValue).length === 0){ 
+    //         if(newGenre!==""){
+    //             api.patch(`/genre/${selectValue}`, newGenreData, headers)
+    //             .then(res=>toast.success("Gênero atualizado!"))
+    //             .catch(err=>toast.error("Erro ao tentar atualizar o gênero"))
+    //         }else{
+    //             toast.error("Nome de gênero necessário")
+    //         }
+    //     }else{
+    //         toast.error("Impossível alterar gêneros com jogos cadastrados.")
+    //     }
+    // }
+
+    const handleGenreDelete = () =>{
+        if(games.filter((element)=>element.genres[0].name===selectValue).length === 0){ 
+                api.delete(`/genre/${selectValue}`, headers)
+                .then(res=>toast.success("Gênero excluido"))
+                .catch(err=>toast.error("Erro ao tentar excluir o gênero"))
+        }else{
+            toast.error("Impossível deletar gêneros com jogos cadastrados.")
+        }
+    }
 
     return(
         <Style.SettingsCardContainer>
@@ -39,19 +101,22 @@ const SettingsCard = ()=> {
                         <h2>Gerenciar Gêneros</h2>
                         <div className="genresContainer">
                             <div className="registerGenre">
-                                <input type="text" placeholder="Novo gênero"/>
-                                <p className="button save" onClick={()=> toast.error("Recurso em desenvolvimento")}>Cadastrar</p>
+                                <input type="text" placeholder="Novo gênero" onChange={e => setGenre(e.target.value)}/>
+                                <p className="button save" onClick={()=>{handleGenrePost();}}>Cadastrar</p>
                             </div>
                             <div className="editGenres">
                                 <div className="chooseAndChangeGenre">
-                                    <input type="text" placeholder="Atualizar"/>
-                                    <select >
-                                        {genres.map((element)=><option key={element.id}>{element.name}</option>)}
+                                    <input type="text" value={newGenre} placeholder="Atualizar" onChange={(e)=>setNewGenre(e.target.value)}/>
+                                    <select value={selectValue} onChange={e => setSelectValue(e.target.value)}>
+                                        {genres.map((element, index)=>
+                                        <option value={element.id} key={index}>
+                                            {element.name}
+                                        </option>)}
                                     </select>
                                 </div>
                             <div className="butonsEditGenre">
-                                <p className="button save" onClick={()=> toast.error("Recurso em desenvolvimento")}>Atualizar</p>
-                                <p className="button cancel" onClick={()=> toast.error("Recurso em desenvolvimento")}>Excluir</p>
+                                <p className="button save" onClick={()=>toast.success("Recurso em desenvolvimento")}>Atualizar</p>
+                                <p className="button cancel" onClick={()=>handleGenreDelete()}>Excluir</p>
                             </div>   
                             </div>
                         </div>

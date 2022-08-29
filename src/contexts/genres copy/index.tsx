@@ -32,7 +32,7 @@ export const ProfilesProvider = ({ children }: ProfileProviderData) => {
   };
 
   const handleGetProfile = () => {
-    api.get("/profile", headers).then((res) => {setProfiles(res.data);console.log(profiles)});
+    api.get("/profile", headers).then((res) => {setProfiles(res.data)});
   };
 
   useEffect(() => {
