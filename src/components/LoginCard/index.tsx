@@ -50,8 +50,8 @@ const LoginCard = ()=> {
                     <h2>Entrar</h2>
                     <div>
                         <form onSubmit={handleSubmit(handleLogin)}>
-                        <input type="text" placeholder="Email"{...register("email")}/>
-                        <input type="password" placeholder="Senha" {...register("password")}/>
+                            <input type="text" placeholder="Email"{...register("email")}/>
+                            <input type="password" placeholder="Senha" {...register("password")}/>
                         <div className="createAcount">
                             <p>Não tem uma conta?</p>
                             <p className="createLink" onClick={()=>navegate("/createUser")}>Crie Uma!</p>

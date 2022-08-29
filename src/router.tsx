@@ -4,6 +4,7 @@ import CreateProfile from "./Pages/CreateProfile"
 import CreateUser from "./Pages/CreateUser"
 import EditGame from "./Pages/EditGame"
 import EditProfile from "./Pages/EditProfile"
+import GameDetail from "./Pages/GameDetail"
 import Home from "./Pages/Home"
 import Login from "./Pages/Login"
 import RegisteGame from "./Pages/RegisteGame"
@@ -24,6 +25,7 @@ const Router = () =>{
                 <Route path="/registeGame" element={<RegisteGame/>}/>
                 <Route path="/editProfile" element={<EditProfile/>}/>
                 <Route path="/editGame" element={<EditGame/>}/>
+                <Route path="/gameDetail" element={ <GameDetail /> }/>
                 </>
                 :
                 <>
