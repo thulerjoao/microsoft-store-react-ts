@@ -20,19 +20,20 @@ const Router = () =>{
             {
                 logged? 
                 <>
+                <Route path="/selectProfile" element={<SelectProfile/>}/>
                 <Route path="/home" element={ <Home/> }/>
                 <Route path="/settings" element={ <Settings/> }/>
                 <Route path="/registeGame" element={<RegisteGame/>}/>
                 <Route path="/editProfile" element={<EditProfile/>}/>
                 <Route path="/editGame" element={<EditGame/>}/>
                 <Route path="/gameDetail" element={ <GameDetail /> }/>
+                <Route path="/createProfile" element={<CreateProfile/>}/>
                 </>
                 :
                 <>
                 <Route path="/" element={<Login/>}/>
                 <Route path="/createUser" element={<CreateUser/>}/>
-                <Route path="/createProfile" element={<CreateProfile/>}/>
-                <Route path="/selectProfile" element={<SelectProfile/>}/>
+                
                 </>
             }
             <Route path="*" element={<Navigate to={logged?"/home":"/"}/>}/>  

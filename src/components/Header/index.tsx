@@ -1,13 +1,12 @@
 import * as Styled from "./style"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
-import { useAuth } from "../../contexts/auth"
+
 
 
 const Header = () =>{
 const navegate = useNavigate()
 
-const { logout } = useAuth()
 const user = JSON.parse(localStorage.getItem("user") || "")
 
     return(
@@ -22,7 +21,7 @@ const user = JSON.parse(localStorage.getItem("user") || "")
                     <div className="nameEmail">
                         <p className="userName">{user.name}</p>
                         <p className="email">{user.email}</p> 
-                        <button onClick={logout}>Sair</button>
+                        <button onClick={()=>navegate("/selectProfile")}>Sair</button>
                     </div>   
                 </div>
                 <div className="cardTwo">

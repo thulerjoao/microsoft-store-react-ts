@@ -1,5 +1,5 @@
 import * as Styled from "./styles"
-import GameDetailCard from "../../components/HeaderGameDetail"
+import GameDetailCard from "../../components/GameDetail"
 import { Game } from "../../types"
 
 

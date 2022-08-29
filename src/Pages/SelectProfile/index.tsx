@@ -1,6 +1,6 @@
 
 
-import SelectProfileCard from "../../components/SelectProfileCard copy"
+import SelectProfileCard from "../../components/SelectProfileCard"
 import * as Style from "./styles"
 
 const SelectProfile = () =>{

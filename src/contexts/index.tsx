@@ -1,29 +1,32 @@
-import { ReactNode } from "react"
-import { BrowserRouter } from "react-router-dom"
-import { ThemeProvider } from "styled-components"
-import theme from "../assets/styles/theme"
-import { AuthProvider } from "./auth"
-import { GamesProvider } from "./games"
-import { GenresProvider } from "./genres"
+import { ReactNode } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "../assets/styles/theme";
+import { AuthProvider } from "./auth";
+import { GamesProvider } from "./games";
+import { GenresProvider } from "./genres";
+import { ProfilesProvider } from "./profile"
 
-interface ProviderProps{
-    children: ReactNode
+interface ProviderProps {
+  children: ReactNode;
 }
 
-const Providers = ({ children }:ProviderProps)=>{
-    return(
+const Providers = ({ children }: ProviderProps) => {
+  return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <GenresProvider>
-          <GamesProvider>
+            <GamesProvider>
+            <ProfilesProvider>
               {children}
-          </GamesProvider>
+            </ProfilesProvider>
+            </GamesProvider>
           </GenresProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
-    )
-}
+  );
+};
 
-export default Providers
+export default Providers;

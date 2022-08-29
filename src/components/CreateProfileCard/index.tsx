@@ -15,7 +15,7 @@ const CreateProfileCard = () =>{
 
                 <header>
                     <p className="register">Criar Perfil</p>
-                    <p className="comeBack" onClick={()=> navegate("/createUser")}>Voltar</p>
+                    <p className="comeBack" onClick={()=> navegate("/selectProfile")}>Voltar</p>
                 </header>
                 <div>
                     <img className="logo"src="https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png" />

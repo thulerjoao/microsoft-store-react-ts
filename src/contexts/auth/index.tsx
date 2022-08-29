@@ -1,7 +1,7 @@
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { Genres, User } from "../../types";
+import { User } from "../../types";
 import { api } from "../../services/index"
 
 interface AuthProviderProps{
@@ -41,7 +41,7 @@ export const AuthProvider = ({children}:AuthProviderProps)=>{
         api.get(`/user/${user.id}`,
         heardes).then(()=>{
             setLogged(true);
-            navegate("/home")
+            navegate("/selectProfile")
         }).catch(()=>{
             logout();
             toast.error("Login necessário")
@@ -57,7 +57,7 @@ export const AuthProvider = ({children}:AuthProviderProps)=>{
         localStorage.setItem("token", token)
         localStorage.setItem("user", JSON.stringify(user))
         setLogged(true);
-        navegate("/home");
+        navegate("/selectProfile");
         toast.success("login bem sucedido")
     }
 

@@ -36,7 +36,7 @@ export const GenresProvider = ({ children }: GenreProviderData) => {
   };
 
   useEffect(() => {
-    {handleGetGenre(); console.log(genres)};
+    {handleGetGenre()};
   }, [logged]);
 
   return (

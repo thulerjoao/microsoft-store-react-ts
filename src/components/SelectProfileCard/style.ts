@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CreateUserCardContainer = styled.div`
     width: 594px;
@@ -68,7 +68,6 @@ h2{
     box-sizing: border-box;
     padding: 0 2.5rem;
     cursor: pointer;
-
     height: 76px;
     max-width: 594px;
     border-top: 1px dashed lightblue;
@@ -76,7 +75,11 @@ h2{
     p{
         font-weight: 600;
         margin-left: 1rem;
-    }   
+    }
+    
+    :hover{
+        background-color: #99c9ed;
+    }
 }
 
 .newProfileCard{
@@ -98,6 +101,10 @@ h2{
         margin-right: 6.2rem;
     }
 
+    :hover{
+        background-color: #99c9ed;
+    }
+
 }
 
 img{
@@ -116,7 +123,7 @@ img{
 
 .logOutCard{
     position: absolute;
-    bottom: 100px;
+    bottom: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -136,24 +143,19 @@ img{
     }
 }
 
-button{
+
+.config{
+    width: 2rem;
+    height: 2rem;
     position: absolute;
-    bottom: 1.2rem;
     right: 3rem;
-    width: 212px;
-    height: 40px;
-    color: white;
-    background-color: #0085FF;
-    font-size: 20px;
-    font-weight: 300;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+
+    :hover{
+        transform: scale(1.1);
+    }
 }
 `
+
 
 export const ErrorMessage = styled.p`
     color: red;

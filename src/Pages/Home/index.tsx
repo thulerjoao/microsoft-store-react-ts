@@ -1,7 +1,7 @@
 import Header from "../../components/Header"
 import GameList from "../../components/GameList"
 import * as Styled from "./styles"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Game, Genres } from "../../types"
 import { useGames } from "../../contexts/games"
 import { useGenres } from "../../contexts/genres"

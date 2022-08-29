@@ -19,7 +19,7 @@ export const GamesProvider = ({children}:GamesProviderProps) => {
 
     const token = localStorage.getItem("token")
 
-    const heardes = {
+    const headers = {
         headers: {
             Authorization:`Bearer ${token}`
         }
@@ -28,7 +28,7 @@ export const GamesProvider = ({children}:GamesProviderProps) => {
     const [games, setGames]= useState<Game[]>([]);
 
     const handleGetGame = ()=>{
-        api.get("/game", heardes).then(res=> {setGames(res.data)})
+        api.get("/game", headers).then(res=> {setGames(res.data)})
     }
 
     useEffect(()=>{if(logged) handleGetGame()},[logged])

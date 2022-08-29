@@ -26,6 +26,18 @@ export interface User{
   updatedAt: Date
 }
 
+export interface Profile{
+  id?: string;
+  title: string;
+  imageUrl: string;
+  user?: User;
+  userId: string;
+  games?: Game[];
+  favoriteGames?: Game[];
+
+
+}
+
 export interface Favorite{
   id: string;
   producttitle: string;
