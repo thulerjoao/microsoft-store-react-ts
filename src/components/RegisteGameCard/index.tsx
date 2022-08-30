@@ -52,9 +52,9 @@ const RegisteGameCard = () =>{
     }
 
     const handleGamePost= ()=>{
-        if(name !=="" && imbd < 5 && imbd>0 && trailer !=="" && gameplay !=="" && genre !=="" && description !=="" && gameImg !==""){
+        if(name !=="" && imbd <= 5 && imbd >= 0 && trailer !=="" && gameplay !=="" && genre !=="" && description !=="" && gameImg !==""){
             api.post("/game", newGameData, headers)
-            .then((res)=>{toast.success("Jogo cadastrado com sucesso!");console.log(genre)})
+            .then((res)=>{toast.success("Jogo cadastrado com sucesso!"); navegate("/settings")})
             .catch(err=>{toast.error("Falha ao cadastrar o jogo"); console.log(genre)})
         }else{
             toast.error("Entradas inválidas")
@@ -109,3 +109,7 @@ const RegisteGameCard = () =>{
 }
 
 export default RegisteGameCard
+
+function useGame(): { handleGetGame: any } {
+    throw new Error("Function not implemented.")
+}

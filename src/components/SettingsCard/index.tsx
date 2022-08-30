@@ -89,7 +89,9 @@ const SettingsCard = ()=> {
                         <div className="cardMapped">
                             {games.map((element)=>{
                                 return(
-                                <div key={element.id} className="eachCard" onClick={()=>{navegate("/editGame")}}>                                    
+                                <div key={element.id} className="eachCard" onClick={()=>{
+                                    localStorage.setItem("currentGame", JSON.stringify(element))
+                                    navegate("/editGame")}}>                                    
                                     <img src={element.coverImageUrl} alt="Imagem do Jogo" className="cardImage"/>
                                     <p>{element.title}</p> 
                                 </div>
