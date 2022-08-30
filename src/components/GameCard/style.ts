@@ -53,8 +53,27 @@ ${({ theme })=> css`
         margin-top: 0.2rem;
         color: #ffffff;
         cursor: pointer;
-    }
+    }  
+    `}   
+    `
 
 
-`}   
+interface favoriteClickProps{
+    active?:boolean;
+}
+
+export const favoriteClick = styled.p<favoriteClickProps>`
+
+        background-color: #d2d2d2;
+        text-align: center;
+        border-radius: 3px;
+        margin-top: 0.2rem;
+        color: #ffffff;
+        cursor: pointer;
+
+        ${({active}:any)=> active && css`
+        background-color: #feb908;
+    `}
+
 `
+
