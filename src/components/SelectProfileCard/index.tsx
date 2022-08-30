@@ -57,10 +57,10 @@ const SelectProfileCard = () =>{
                             {profiles.map((element)=>{
                             if(element.userId===user.id){ 
                             return(
-                            <div className="profileCard" key={element.id}>
+                            <div className="profileCard" key={element.id} onClick={()=>{handleProfile(element);navegate("/home")}}>
                                 <img src={element.imageUrl} alt="" />
-                                <p onClick={()=>{handleProfile(element);navegate("/home")}}>{element.title}</p>
-                                <img onClick={()=>{handleProfile(element);navegate("/editProfile")}} className="config" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHoC5iGHtX2tecHOGvkewML324RHaWRbimrRMr76H99YodeeherYgXm935b_Ef9nS5JkE&usqp=CAU" alt="Config"/>
+                                <p>{element.title}</p>
+                                <img onClick={(event)=>{event.stopPropagation();handleProfile(element);navegate("/editProfile")}} className="config" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHoC5iGHtX2tecHOGvkewML324RHaWRbimrRMr76H99YodeeherYgXm935b_Ef9nS5JkE&usqp=CAU" alt="Config"/>
                             </div>)}})}
                         <div className="newProfileCard" onClick={()=>navegate("/createProfile")}>
                             <p>Adicionar novo perfil</p>
