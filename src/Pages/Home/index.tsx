@@ -33,10 +33,10 @@ const Home = () => {
                 <div className="filters">
                 <div className="genres">
                     <p>Gêneros:</p>
-                    {genres.map((element)=>{ 
+                    {genres.map((element, index)=>{ 
                         return(
                             <Styled.GenreNavigatton 
-                            key= {element.id}
+                            key= {index}
                             active={element.name === selectedGenre.name} 
                             onClick={() => {setSelectedGenre(element);console.log(genres)}}>
                                 {element.name}

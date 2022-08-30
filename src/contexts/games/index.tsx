@@ -9,6 +9,7 @@ interface GamesProviderProps {
 
 interface GamesProviderData{
     games: Game[]
+    handleGetGame: ()=> void
 }
 
 const GameContext = createContext<GamesProviderData>({} as GamesProviderData);
@@ -19,7 +20,7 @@ export const GamesProvider = ({children}:GamesProviderProps) => {
 
     const token = localStorage.getItem("token")
 
-    const heardes = {
+    const headers = {
         headers: {
             Authorization:`Bearer ${token}`
         }
@@ -28,12 +29,12 @@ export const GamesProvider = ({children}:GamesProviderProps) => {
     const [games, setGames]= useState<Game[]>([]);
 
     const handleGetGame = ()=>{
-        api.get("/game", heardes).then(res=> {setGames(res.data)})
+        api.get("/game", headers).then(res=> {setGames(res.data)})
     }
 
     useEffect(()=>{if(logged) handleGetGame()},[logged])
 
-    return <GameContext.Provider value={{games}}>{children}</GameContext.Provider>
+    return <GameContext.Provider value={{ games, handleGetGame }}>{children}</GameContext.Provider>
 }
 
 export const useGames = () => useContext(GameContext)

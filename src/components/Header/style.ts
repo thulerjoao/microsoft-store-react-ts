@@ -45,8 +45,16 @@ ${({theme})=> css`
         align-items: center;
         background-color: ${theme.colors.backgoundCards};
         border-radius: 10px;
-        padding: 0.2rem 1rem;
-        padding-right: 5rem;
+        padding: 0.2rem 0.5rem;
+        
+
+        img{
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 10%;
+            margin-left: 1rem;
+
+        }
     }
 
     .ball{
@@ -74,6 +82,10 @@ ${({theme})=> css`
 
     .email{
         font-size: 0.8rem;
+    }
+
+    .click{
+        cursor: pointer;
     }
 
     button{
@@ -113,7 +125,6 @@ ${({theme})=> css`
     p{
         margin: 0.4rem;
         font-weight: 500;
-        cursor: pointer;
     };
     
 `}

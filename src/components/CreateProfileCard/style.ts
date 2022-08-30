@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CreateUserCardContainer = styled.div`
     width: 37.125rem;
-    height: 41.625rem;
+    height: 41.625rem; 
     background-color: white;
     display: flex;
     flex-direction: column;

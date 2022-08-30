@@ -97,6 +97,8 @@ form{
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -131,6 +133,20 @@ form{
     border: none;
     margin: 3rem 1rem;
 }
+
+.confirmation{
+    position: absolute;
+    z-index: 100;
+    width: 37.2rem;
+    height: 20rem;
+    background-color: black;
+    display: none;
+    color: white;
+    bottom: 5rem;
+
+
+}
+
 `
 
 export const ErrorMessage = styled.p`

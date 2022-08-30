@@ -15,6 +15,7 @@ interface GenreProviderData {
 
 interface GenreContextData {
   genres: Genres[];
+  handleGetGenre: ()=> void
 }
 
 const GenreContext = createContext<GenreContextData>({} as GenreContextData);
@@ -36,11 +37,11 @@ export const GenresProvider = ({ children }: GenreProviderData) => {
   };
 
   useEffect(() => {
-    {handleGetGenre(); console.log(genres)};
+    {handleGetGenre()};
   }, [logged]);
 
   return (
-    <GenreContext.Provider value={{ genres }}>{children}</GenreContext.Provider>
+    <GenreContext.Provider value={{ genres, handleGetGenre }}>{children}</GenreContext.Provider>
   );
 };
 
