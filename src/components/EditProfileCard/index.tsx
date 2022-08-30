@@ -57,7 +57,7 @@ const EditProfileCard = () =>{
         <Style.EditUserCardContainer>
                 <header>
                     <p className="register">Editar Perfil</p>
-                    <p className="comeBack" onClick={()=> navegate("/selectProfile")}>Voltar</p>
+                    <p className="comeBack" onClick={()=> navegate("/home")}>Voltar</p>
                 </header>
                 <div>
                     <img className="logo"src="https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png" />
