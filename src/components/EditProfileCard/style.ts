@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const EditUserCardContainer = styled.div`
     width: 37.125rem;
@@ -137,15 +137,56 @@ form{
 .confirmation{
     position: absolute;
     z-index: 100;
-    width: 37.2rem;
-    height: 20rem;
-    background-color: black;
+    width: 37.125rem;
+    height: 10rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: white;
+    justify-content: center;
     display: none;
-    color: white;
-    bottom: 5rem;
+    bottom: 20%;
+    align-items: center;
 
+    div{
+        display: flex;
+        flex-direction: row;
+    }
 
 }
+
+`
+
+interface modalProps{
+    active?:boolean;
+}
+
+export const modalClick = styled.div<modalProps>`
+
+position: absolute;
+    z-index: 100;
+    width: 37.125rem;
+    height: 10rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    bottom: 20%;
+    align-items: center;
+
+    div{
+        
+        flex-direction: row;
+    }
+
+        ${({active}:any)=> active && css`
+        display: none ;
+       
+    `}
 
 `
 

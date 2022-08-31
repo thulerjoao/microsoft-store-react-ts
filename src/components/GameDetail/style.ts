@@ -13,7 +13,7 @@ width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 36%;
     margin-top: 1rem;
     border-radius: 10px;
     position: relative;

@@ -3,7 +3,6 @@ import * as Styled from "./style"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { api } from "../../services"
 
 interface GameCardProps{
     game:Game

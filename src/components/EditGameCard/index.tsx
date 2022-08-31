@@ -78,7 +78,7 @@ const EditGameCard = () =>{
         <Style.EditGameCardContainer>
 
                 <header>
-                    <p className="topPhrase">Cadastro</p>
+                    <p className="topPhrase">Editar jogo</p>
                     <p className="comeBack" onClick={()=> navegate("/settings")}>Voltar</p>
                 </header>
                 <div>
