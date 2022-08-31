@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import { useGames } from "../../contexts/games"
 import { useGenres } from "../../contexts/genres"
 import { api } from "../../services"
-import { Game } from "../../types"
 import * as Style from "./style"
 
 
@@ -12,6 +12,7 @@ const RegisteGameCard = () =>{
     const token = localStorage.getItem("token")
     const navegate= useNavigate()
     const {genres}= useGenres()
+    const {handleGetGame} = useGames()
     
     const [ name, setName ] = useState<string>("")
     const [ imbd, setImbd ] = useState<number>(5)
@@ -54,7 +55,7 @@ const RegisteGameCard = () =>{
     const handleGamePost= ()=>{
         if(name !=="" && imbd <= 5 && imbd >= 0 && trailer !=="" && gameplay !=="" && genre !=="" && description !=="" && gameImg !==""){
             api.post("/game", newGameData, headers)
-            .then((res)=>{toast.success("Jogo cadastrado com sucesso!"); navegate("/settings")})
+            .then((res)=>{handleGetGame(); toast.success("Jogo cadastrado com sucesso!"); navegate("/settings")})
             .catch(err=>{toast.error("Falha ao cadastrar o jogo"); console.log(genre)})
         }else{
             toast.error("Entradas inválidas")

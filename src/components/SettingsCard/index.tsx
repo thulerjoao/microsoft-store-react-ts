@@ -10,7 +10,8 @@ import { api } from "../../services"
 const SettingsCard = ()=> {
     const navegate = useNavigate()
     const { games } = useGames()
-    const { genres } = useGenres()
+    const { genres, handleGetGenre } = useGenres()
+    const { handleGetGame } = useGames()
     const token = localStorage.getItem("token")
 
     const headers = {
@@ -31,11 +32,15 @@ const SettingsCard = ()=> {
         name: genre
     }
 
-    
+    useEffect(()=>handleGetGenre(), [genre])
+    useEffect(()=>handleGetGame(), [games])
+
     const handleGenrePost = ()=>{
         if(genre!==""){
             api.post("/genre", genreData, headers)
-            .then(res=>toast.success("Genero criado!"))
+            .then(res=>{
+                handleGetGenre();
+                toast.success("Genero criado!")})
             .catch(err=>toast.error("Erro ao cadastrar"))
         }else{
             toast.error("Nome de gênero necessário")
@@ -44,28 +49,30 @@ const SettingsCard = ()=> {
 
     // OBS: AO ATUALIZAR OS GENEROS EXISTENTES(CÓDIGO ABAIXO), OS GENEROS CADASTRADOS EM JOGOS DAVAM ERRO NA APLICAÇÃO!!!
 
-    // const newGenreData:GenreData ={
-    //     name: newGenre
-    // }
+    const newGenreData:GenreData ={
+        name: newGenre
+    }
 
-    // const handleGenrePatch = () =>{
-    //     if(games.filter((element)=>element.genres[0].name===selectValue).length === 0){ 
-    //         if(newGenre!==""){
-    //             api.patch(`/genre/${selectValue}`, newGenreData, headers)
-    //             .then(res=>toast.success("Gênero atualizado!"))
-    //             .catch(err=>toast.error("Erro ao tentar atualizar o gênero"))
-    //         }else{
-    //             toast.error("Nome de gênero necessário")
-    //         }
-    //     }else{
-    //         toast.error("Impossível alterar gêneros com jogos cadastrados.")
-    //     }
-    // }
+    const handleGenrePatch = () =>{
+        if(games.filter((element)=>element.genres[0].name===selectValue).length === 0){ 
+            if(newGenre!==""){
+                api.patch(`/genre/${selectValue}`, newGenreData, headers)
+                .then(res=>{toast.success("Gênero atualizado!"); handleGetGenre()})
+                .catch(err=>toast.error("Erro ao tentar atualizar o gênero"))
+            }else{
+                toast.error("Nome de gênero necessário")
+            }
+        }else{
+            toast.error("Impossível alterar gêneros com jogos cadastrados.")
+        }
+    }
 
     const handleGenreDelete = () =>{
         if(games.filter((element)=>element.genres[0].name===selectValue).length === 0){ 
                 api.delete(`/genre/${selectValue}`, headers)
-                .then(res=>toast.success("Gênero excluido"))
+                .then(res=>{
+                    toast.success("Gênero excluido");
+                    handleGetGenre()})
                 .catch(err=>toast.error("Erro ao tentar excluir o gênero"))
         }else{
             toast.error("Impossível deletar gêneros com jogos cadastrados.")
@@ -108,7 +115,7 @@ const SettingsCard = ()=> {
                             </div>
                             <div className="editGenres">
                                 <div className="chooseAndChangeGenre">
-                                    <input type="text" value={newGenre} placeholder="Atualizar" onChange={(e)=>setNewGenre(e.target.value)}/>
+                                    <input type="text" value={newGenre} placeholder={selectValue} onChange={(e)=>setNewGenre(e.target.value)}/>
                                     <select value={selectValue} onChange={e => setSelectValue(e.target.value)}>
                                         {genres.map((element, index)=>
                                         <option value={element.id} key={index}>
@@ -117,7 +124,7 @@ const SettingsCard = ()=> {
                                     </select>
                                 </div>
                             <div className="butonsEditGenre">
-                                <p className="button save" onClick={()=>toast.success("Recurso em desenvolvimento")}>Atualizar</p>
+                                <p className="button save" onClick={()=>handleGenrePatch()}>Atualizar</p>
                                 <p className="button cancel" onClick={()=>handleGenreDelete()}>Excluir</p>
                             </div>   
                             </div>

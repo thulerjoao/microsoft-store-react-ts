@@ -19,7 +19,7 @@ width: 100%;
     position: relative;
 
     img{
-        width: 20rem;
+        width: 15rem;
         margin-right: 1rem;
         border-radius: 5px;
     }

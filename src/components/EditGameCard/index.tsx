@@ -15,6 +15,7 @@ const EditGameCard = () =>{
 
     const navegate= useNavigate()
     const {genres}= useGenres()
+    const {handleGetGame} = useGames()
 
     const [ name, setName ] = useState<string>(game.title)
     const [ imbd, setImbd ] = useState<number>(game.imdbScore)
@@ -57,7 +58,7 @@ const EditGameCard = () =>{
     const handleGamePatch= ()=>{
         if(name !=="" && imbd <= 5 && imbd >= 0 && trailer !=="" && gameplay !=="" && genre !=="" && description !=="" && gameImg !==""){
             api.patch(`/game/${game.id}`, newGameData, headers)
-            .then((res)=>{toast.success("Jogo atualizado com sucesso!"); navegate("/settings")})
+            .then((res)=>{handleGetGame(); toast.success("Jogo atualizado com sucesso!"); navegate("/settings")})
             .catch(err=>toast.error("Falha ao atualizar o jogo"))
         }else{
             toast.error("Entradas inválidas")
@@ -68,7 +69,8 @@ const EditGameCard = () =>{
         api.delete(`/game/${game.id}`, headers)
             .then((res)=>{
                 toast.success("O jogo foi excluido.");
-                navegate("/settings")})
+                navegate("/settings");
+                handleGetGame()})
             .catch(err=>toast.error("Falha ao tentar excluir o jogo"))
     }
 

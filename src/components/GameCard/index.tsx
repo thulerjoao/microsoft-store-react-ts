@@ -12,13 +12,10 @@ interface GameCardProps{
     const GameCard = ({game}:GameCardProps)=>{
     const[isFavorite,setIsFavorite] = useState<boolean>(false)
 
-   
-
-   
     const handleFavorite = (game:Game) =>{
-        setIsFavorite(!isFavorite);
-        api.patch("profile", )
+        setIsFavorite(!isFavorite);    
     }
+
     const navegate = useNavigate()
     const handleCurrentGame = () =>{
         localStorage.setItem("currentGame", JSON.stringify(game))
